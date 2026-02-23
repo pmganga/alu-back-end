@@ -20,7 +20,8 @@ if __name__ == "__main__":
     employee_name = user_data.get("name")
 
     # Fetch todos data for the specific user
-    todos_response = requests.get(base_url + "todos", params={"userId": employee_id})
+    todos_response = requests.get(
+            base_url + "todos", params={"userId": employee_id})
     todos_data = todos_response.json()
 
     # Filter completed tasks and count totals

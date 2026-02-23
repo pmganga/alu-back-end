@@ -15,13 +15,13 @@ if __name__ == "__main__":
     username = user.get("username")
 
     # Fetch todos for the user
-    todos = requests.get(base_url + "todos", params={"userId": employee_id}).json()
+    todos = requests.get(
+            base_url + "todos", params={"userId": employee_id}).json()
 
     # Create and write to the CSV file
     csv_filename = "{}.csv".format(employee_id)
     with open(csv_filename, mode="w", newline="") as csv_file:
         writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
-        
         for task in todos:
             writer.writerow([
                 employee_id,

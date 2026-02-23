@@ -19,7 +19,8 @@ if __name__ == "__main__":
     username = user_data.get("username")
 
     # Fetch the to-do list for this specific user
-    todos_response = requests.get(base_url + "todos", params={"userId": employee_id})
+    todos_response = requests.get(
+            base_url + "todos", params={"userId": employee_id})
     todos_data = todos_response.json()
 
     # Build the required list of dictionaries
@@ -31,7 +32,6 @@ if __name__ == "__main__":
             "username": username
         }
         task_list.append(task_dict)
-    
     # Wrap it in the main dictionary with the user ID as the key
     data_to_export = {employee_id: task_list}
 
